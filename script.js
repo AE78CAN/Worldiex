@@ -1,4 +1,4 @@
-// Dummy articles for now (later will be fetched from backend API)
+// Dummy articles
 const articles = [
   {
     title: "World Leaders Meet for Global Summit",
@@ -18,9 +18,14 @@ const articles = [
   }
 ];
 
-// Function to display news
 function loadNews() {
+  console.log("✅ Script loaded. Rendering news...");
   const container = document.getElementById("news-container");
+  if (!container) {
+    console.error("❌ Container not found!");
+    return;
+  }
+
   container.innerHTML = articles.map(article => `
     <div class="news-card">
       <h2>${article.title}</h2>
@@ -29,5 +34,4 @@ function loadNews() {
   `).join("");
 }
 
-// Load news on page load
 document.addEventListener("DOMContentLoaded", loadNews);
